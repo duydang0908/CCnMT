@@ -1,0 +1,81 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    { 
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<table class="table">
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tensach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hinhminhhoa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaycapnhat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CHUDE.TenCD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiSach.TenLoaiSach)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NXB.TenNXB)
+            </th>
+            <th></th>
+        </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <div id="product_container">
+            <div id="images">
+                <img src="~/images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" height="200" width="200" />
+            </div>
+            <ul>
+                <li><p style="color:red">Tên sách:</p> @Truncate(item.Mota, 25)</li>
+                <li><p style="color:red">Mô tả:</p>@Truncate(item.Mota, 10)</li>
+                <li>
+                    <p style="color:red">Tên NXB:</p> @Html.DisplayFor(modelItem => item.NXB.TenNXB)
+                </li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.Masach })</li>
+            </ul>
+        </div>
+    }
+
+</table>
+<div id="additional_area">
+    @*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount*@
+    <div class="MenuTrang" style="text-align:center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+
+
+
+<style>
+
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
