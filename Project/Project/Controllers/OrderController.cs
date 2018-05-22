@@ -8,7 +8,7 @@ namespace Project.Controllers
 {
     public class OrderController : Controller
     {
-        QLThuVienEntities data = new QLThuVienEntities();
+        QLThuVienEntities1 data = new QLThuVienEntities1();
 
         public List<Order> Layorder()
         {
@@ -122,8 +122,10 @@ namespace Project.Controllers
             data.SaveChanges();
             foreach(var item in gh)
             {
-                pms.SoLuong = item.iSL;
-                pms.MaSach = item.iMasach;
+                CT_PhieuMuonSach ctpms = new CT_PhieuMuonSach();
+                ctpms.MaPhieuMuon = pms.MaPhieuMuon;
+                ctpms.Masach = item.iMasach;
+                ctpms.SoLuong = item.iSL;
                 data.PhieuMuonSaches.Add(pms);
                 data.SaveChanges();
             }

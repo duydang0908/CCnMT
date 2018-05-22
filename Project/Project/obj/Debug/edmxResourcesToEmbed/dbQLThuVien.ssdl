@@ -23,6 +23,15 @@
     <Property Name="MaCD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenCD" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="CT_PhieuMuonSach">
+    <Key>
+      <PropertyRef Name="MaPhieuMuon" />
+      <PropertyRef Name="Masach" />
+    </Key>
+    <Property Name="MaPhieuMuon" Type="int" Nullable="false" />
+    <Property Name="Masach" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
   <EntityType Name="DOCGIA">
     <Key>
       <PropertyRef Name="MaDG" />
@@ -120,6 +129,30 @@ warning 6002: The table/view 'QLThuVien.dbo.VIETSACH' does not have a primary ke
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__CT_PhieuM__MaPhi__2F10007B">
+    <End Role="PhieuMuonSach" Type="Self.PhieuMuonSach" Multiplicity="1" />
+    <End Role="CT_PhieuMuonSach" Type="Self.CT_PhieuMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuMuonSach">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Principal>
+      <Dependent Role="CT_PhieuMuonSach">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PhieuM__Masac__300424B4">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="CT_PhieuMuonSach" Type="Self.CT_PhieuMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="Masach" />
+      </Principal>
+      <Dependent Role="CT_PhieuMuonSach">
+        <PropertyRef Name="Masach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <!--Errors Found During Generation:
 error 6004: The table 'QLThuVien.dbo.NhapSach' is referenced by a relationship, but cannot be found.
         <Association Name="FK__NhapSach__Masach__1DE57479" />-->
@@ -205,6 +238,7 @@ error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, b
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BaoCaoMuonSach" EntityType="Self.BaoCaoMuonSach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_PhieuMuonSach" EntityType="Self.CT_PhieuMuonSach" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DOCGIA" EntityType="Self.DOCGIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NXB" EntityType="Self.NXB" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhieuMuonSach" EntityType="Self.PhieuMuonSach" Schema="dbo" store:Type="Tables" />
@@ -221,6 +255,14 @@ error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, b
     <AssociationSet Name="FK__BaoCaoMuon__MaCD__29572725" Association="Self.FK__BaoCaoMuon__MaCD__29572725">
       <End Role="CHUDE" EntitySet="CHUDE" />
       <End Role="BaoCaoMuonSach" EntitySet="BaoCaoMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PhieuM__MaPhi__2F10007B" Association="Self.FK__CT_PhieuM__MaPhi__2F10007B">
+      <End Role="PhieuMuonSach" EntitySet="PhieuMuonSach" />
+      <End Role="CT_PhieuMuonSach" EntitySet="CT_PhieuMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PhieuM__Masac__300424B4" Association="Self.FK__CT_PhieuM__Masac__300424B4">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="CT_PhieuMuonSach" EntitySet="CT_PhieuMuonSach" />
     </AssociationSet>
     <AssociationSet Name="FK__PhieuMuonS__MaDG__20C1E124" Association="Self.FK__PhieuMuonS__MaDG__20C1E124">
       <End Role="DOCGIA" EntitySet="DOCGIA" />

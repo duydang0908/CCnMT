@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a62800fcf2d64ef18be25007d00fed2c" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="QLThuVienModel.Admin" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.BaoCaoMuonSach" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.CHUDE" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.DOCGIA" Width="1.5" PointX="8.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.NXB" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.PhieuMuonSach" Width="1.5" PointX="11" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.PhieuThu" Width="1.5" PointX="11" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.SACH" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.TACGIA" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLThuVienModel.VIETSACH" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="QLThuVienModel.FK__BaoCaoMuon__MaCD__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__SACH__MaCD__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuMuonS__MaDG__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__PhieuThu__MaDG__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__SACH__MaNXB__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__VIETSACH__Masach__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="QLThuVienModel.FK__VIETSACH__MaTG__1B0907CE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLThuVienModel.CT_PhieuMuonSach" Width="1.5" PointX="13.25" PointY="5" />
+        <AssociationConnector Association="QLThuVienModel.FK__CT_PhieuM__MaPhi__2F10007B" />
+        <AssociationConnector Association="QLThuVienModel.FK__CT_PhieuM__Masac__300424B4" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

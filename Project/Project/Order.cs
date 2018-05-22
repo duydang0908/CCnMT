@@ -7,7 +7,7 @@ namespace Project
 {
     public class Order
     {
-        QLThuVienEntities data = new QLThuVienEntities();
+        QLThuVienEntities1 data = new QLThuVienEntities1();
 
         public int iMasach { get; set; }
         public string sTensach { get; set; }

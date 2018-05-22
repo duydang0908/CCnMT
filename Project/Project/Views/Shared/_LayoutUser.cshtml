@@ -26,19 +26,22 @@
                     <li><a href="#">Feedback</li></a>
                     <li><a href="#">Add to Favorites</li></a>
                     <li><a href="#">About Us</li></a>
-                    <li><a href="#">Contact Us</li></a>
+                    <li style="font-size:15pt">
+                        @Html.Action("GiohangPartial", "Order")
+                    </li>
+                    @*<li><a href="#">Contact Us</li></a>*@
 
 
                     @if (Session["Taikhoan"] == null)
-                    {
-                        <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
+    {
+                <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
 
-                    }
-                    else
-                    {
-                        <li style="font-size:15px;font-weight:bold">Hello, @Session["Taikhoan"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
+}
+else
+{
+                <li style="font-size:15px;font-weight:bold">Hello, @Session["Taikhoan"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
 
-                    }
+}
                 </ul>
             </div><!--end nav area-->
 

@@ -14,13 +14,18 @@ namespace Project
     
     public partial class PhieuMuonSach
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PhieuMuonSach()
+        {
+            this.CT_PhieuMuonSach = new HashSet<CT_PhieuMuonSach>();
+        }
+    
         public int MaPhieuMuon { get; set; }
         public Nullable<int> MaDG { get; set; }
         public Nullable<System.DateTime> NgayMuon { get; set; }
-        public Nullable<int> SoLuong { get; set; }
-        public Nullable<int> MaSach { get; set; }
     
         public virtual DOCGIA DOCGIA { get; set; }
-        public virtual SACH SACH { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_PhieuMuonSach> CT_PhieuMuonSach { get; set; }
     }
 }

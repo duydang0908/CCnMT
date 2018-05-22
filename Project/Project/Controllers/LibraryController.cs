@@ -15,9 +15,9 @@ namespace Project.Controllers
 {
     public class LibraryController : Controller
     {
-        QLThuVienEntities data = new QLThuVienEntities();
+        QLThuVienEntities1 data = new QLThuVienEntities1();
 
-        private QLThuVienEntities db = new QLThuVienEntities();
+        private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: Library
         public async Task<ActionResult> Index(int ?page)

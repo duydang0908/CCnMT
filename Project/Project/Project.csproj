@@ -160,60 +160,63 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BaoCaoMuonSach.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="CHUDE.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="CT_PhieuMuonSach.cs">
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbQLThuVien.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQLThuVien.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbQLThuVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbQLThuVien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbQLThuVien.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DOCGIA.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="NXB.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="PhieuMuonSach.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="PhieuThu.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLTV.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTV.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLTV.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTV.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLTV.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLTV.edmx</DependentUpon>
-    </Compile>
     <Compile Include="SACH.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="TACGIA.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
     <Compile Include="VIETSACH.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
+      <DependentUpon>dbQLThuVien.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +234,16 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\util-log.css" />
+    <Content Include="dbQLThuVien.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbQLThuVien.edmx</DependentUpon>
+      <LastGenOutput>dbQLThuVien.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="dbQLThuVien.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbQLThuVien.edmx</DependentUpon>
+      <LastGenOutput>dbQLThuVien.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -303,16 +316,6 @@
     <Content Include="Login_v3\vendor\select2\select2.js" />
     <Content Include="Login_v3\vendor\select2\select2.min.css" />
     <Content Include="Login_v3\vendor\select2\select2.min.js" />
-    <Content Include="QLTV.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTV.edmx</DependentUpon>
-      <LastGenOutput>QLTV.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QLTV.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTV.edmx</DependentUpon>
-      <LastGenOutput>QLTV.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -379,12 +382,12 @@
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <EntityDeploy Include="QLTV.edmx">
+    <EntityDeploy Include="dbQLThuVien.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLTV.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbQLThuVien.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="QLTV.edmx.diagram">
-      <DependentUpon>QLTV.edmx</DependentUpon>
+    <Content Include="dbQLThuVien.edmx.diagram">
+      <DependentUpon>dbQLThuVien.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

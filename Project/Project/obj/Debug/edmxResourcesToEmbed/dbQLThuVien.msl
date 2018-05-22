@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QLThuVienModelStoreContainer" CdmEntityContainer="QLThuVienEntities">
+  <EntityContainerMapping StorageEntityContainer="QLThuVienModelStoreContainer" CdmEntityContainer="QLThuVienEntities1">
     <EntitySetMapping Name="Admins">
       <EntityTypeMapping TypeName="QLThuVienModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
@@ -98,6 +98,15 @@
           <ScalarProperty Name="MaTG" ColumnName="MaTG" />
           <ScalarProperty Name="Masach" ColumnName="Masach" />
           <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_PhieuMuonSach">
+      <EntityTypeMapping TypeName="QLThuVienModel.CT_PhieuMuonSach">
+        <MappingFragment StoreEntitySet="CT_PhieuMuonSach">
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Masach" ColumnName="Masach" />
+          <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
