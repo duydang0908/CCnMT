@@ -15,9 +15,9 @@ namespace Project.Controllers
 {
     public class LibraryController : Controller
     {
-        QLTVEntities data = new QLTVEntities();
+        QLThuVienEntities data = new QLThuVienEntities();
 
-        private QLTVEntities db = new QLTVEntities();
+        private QLThuVienEntities db = new QLThuVienEntities();
 
         // GET: Library
         public async Task<ActionResult> Index(int ?page)
@@ -49,7 +49,7 @@ namespace Project.Controllers
         public ActionResult Create()
         {
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD");
-            ViewBag.MaLoaiSach = new SelectList(db.LoaiSaches, "MaLoaiSach", "TenLoaiSach");
+            
             ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB");
             return View();
         }
@@ -69,8 +69,7 @@ namespace Project.Controllers
             }
 
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD", sACH.MaCD);
-            ViewBag.MaLoaiSach = new SelectList(db.LoaiSaches, "MaLoaiSach", "TenLoaiSach", sACH.MaLoaiSach);
-            ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB", sACH.MaNXB);
+            
             return View(sACH);
         }
 
@@ -87,7 +86,6 @@ namespace Project.Controllers
                 return HttpNotFound();
             }
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD", sACH.MaCD);
-            ViewBag.MaLoaiSach = new SelectList(db.LoaiSaches, "MaLoaiSach", "TenLoaiSach", sACH.MaLoaiSach);
             ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB", sACH.MaNXB);
             return View(sACH);
         }
@@ -106,7 +104,7 @@ namespace Project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD", sACH.MaCD);
-            ViewBag.MaLoaiSach = new SelectList(db.LoaiSaches, "MaLoaiSach", "TenLoaiSach", sACH.MaLoaiSach);
+           
             ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB", sACH.MaNXB);
             return View(sACH);
         }
@@ -189,7 +187,7 @@ namespace Project.Controllers
                 ViewData["Loi2"] = "Phải điền đầy đủ thông tin";
             else
             {
-                DOCGIA dg = data.DOCGIAs.SingleOrDefault(n => n.Email == tendn && n.DienThoai == mk);
+                DOCGIA dg = data.DOCGIAs.SingleOrDefault(n => n.TenDN == tendn && n.MatKhau == mk);
                 {
                     if (dg != null)
                     {

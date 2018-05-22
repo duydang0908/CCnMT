@@ -8,12 +8,12 @@ namespace Project.Controllers
 {
     public class OrderController : Controller
     {
-        QLTVEntities data = new QLTVEntities();
+        QLThuVienEntities data = new QLThuVienEntities();
 
-        public List<Order>Layorder()
+        public List<Order> Layorder()
         {
             List<Order> lstOrder = Session["Order"] as List<Order>;
-            if(lstOrder==null)
+            if (lstOrder == null)
             {
                 lstOrder = new List<Order>();
                 Session["Order"] = lstOrder;
@@ -40,7 +40,7 @@ namespace Project.Controllers
         {
             List<Order> lstOrder = Layorder();
             Order sp = lstOrder.Find(n => n.iMasach == iMasach);
-            if(sp==null)
+            if (sp == null)
             {
                 sp = new Order(iMasach);
                 lstOrder.Add(sp);
@@ -72,7 +72,7 @@ namespace Project.Controllers
         {
             List<Order> lstOrder = Layorder();
             Order sp = lstOrder.SingleOrDefault(n => n.iMasach == iMaSP);
-            if(sp!=null)
+            if (sp != null)
             {
                 lstOrder.RemoveAll(n => n.iMasach == iMaSP);
                 return RedirectToAction("GioHang");
@@ -82,7 +82,7 @@ namespace Project.Controllers
             return RedirectToAction("GioHang");
         }
 
-        public ActionResult CapnhatGiohang(int iMaSP,FormCollection f)
+        public ActionResult CapnhatGiohang(int iMaSP, FormCollection f)
         {
             List<Order> lstOrder = Layorder();
             Order sp = lstOrder.SingleOrDefault(n => n.iMasach == iMaSP);
@@ -97,6 +97,44 @@ namespace Project.Controllers
             lstOrder.Clear();
             return RedirectToAction("Index", "Library");
         }
-        
+
+        [HttpGet]
+        public ActionResult DatHang()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+                return RedirectToAction("Login", "Library");
+            if (Session["Giohang"] == null)
+                return RedirectToAction("Index", "Library");
+            List<Order> lstOrder = Layorder();
+            ViewBag.Tongsoluong = tongSoLuong();
+            return View(lstOrder);
+        }
+
+        [HttpPost]
+        public ActionResult DatHang(FormCollection collection)
+        {
+            PhieuMuonSach pms = new PhieuMuonSach();
+            DOCGIA dg = (DOCGIA)Session["Taikhoan"];
+            List<Order> gh = Layorder();
+            pms.MaDG = dg.MaDG;
+            pms.NgayMuon = DateTime.Now;
+            data.PhieuMuonSaches.Add(pms);
+            data.SaveChanges();
+            foreach(var item in gh)
+            {
+                pms.SoLuong = item.iSL;
+                pms.MaSach = item.iMasach;
+                data.PhieuMuonSaches.Add(pms);
+                data.SaveChanges();
+            }
+            data.SaveChanges();
+            Session["Giohang"] = null;
+            return RedirectToAction("Xacnhandonhang", "Order");
+        }
+
+        public ActionResult Xacnhandonhang()
+        {
+            return View();
+        }
     }
 }

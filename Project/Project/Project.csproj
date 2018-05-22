@@ -180,9 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoaiSach.cs">
-      <DependentUpon>QLTV.tt</DependentUpon>
-    </Compile>
     <Compile Include="NXB.cs">
       <DependentUpon>QLTV.tt</DependentUpon>
     </Compile>
@@ -308,8 +305,8 @@
     <Content Include="Login_v3\vendor\select2\select2.min.js" />
     <Content Include="QLTV.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>QLTV.Context.cs</LastGenOutput>
       <DependentUpon>QLTV.edmx</DependentUpon>
+      <LastGenOutput>QLTV.Context.cs</LastGenOutput>
     </Content>
     <Content Include="QLTV.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -320,13 +317,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="QLTV.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLTV.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="QLTV.edmx.diagram">
-      <DependentUpon>QLTV.edmx</DependentUpon>
     </Content>
     <Content Include="Login_v3\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Login_v3\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
@@ -389,6 +379,13 @@
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Login_v3\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <EntityDeploy Include="QLTV.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLTV.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="QLTV.edmx.diagram">
+      <DependentUpon>QLTV.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -426,6 +423,9 @@
     <Content Include="Views\Library\Logout.cshtml" />
     <Content Include="Views\Order\GioHang.cshtml" />
     <Content Include="Views\Order\GiohangPartial.cshtml" />
+    <Content Include="Views\Order\Laysach.cshtml" />
+    <Content Include="Views\Order\Xacnhandonhang.cshtml" />
+    <Content Include="Views\Order\DatHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QLTVModelStoreContainer" CdmEntityContainer="QLTVEntities">
+  <EntityContainerMapping StorageEntityContainer="QLThuVienModelStoreContainer" CdmEntityContainer="QLThuVienEntities">
     <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="QLTVModel.Admin">
+      <EntityTypeMapping TypeName="QLThuVienModel.Admin">
         <MappingFragment StoreEntitySet="Admin">
           <ScalarProperty Name="UserAdmin" ColumnName="UserAdmin" />
           <ScalarProperty Name="PassAdmin" ColumnName="PassAdmin" />
@@ -11,16 +11,16 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BaoCaoMuonSaches">
-      <EntityTypeMapping TypeName="QLTVModel.BaoCaoMuonSach">
+      <EntityTypeMapping TypeName="QLThuVienModel.BaoCaoMuonSach">
         <MappingFragment StoreEntitySet="BaoCaoMuonSach">
           <ScalarProperty Name="MaBaoCaoMuonSach" ColumnName="MaBaoCaoMuonSach" />
-          <ScalarProperty Name="MaLoaiSach" ColumnName="MaLoaiSach" />
+          <ScalarProperty Name="MaCD" ColumnName="MaCD" />
           <ScalarProperty Name="SoLuotMuon" ColumnName="SoLuotMuon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CHUDEs">
-      <EntityTypeMapping TypeName="QLTVModel.CHUDE">
+      <EntityTypeMapping TypeName="QLThuVienModel.CHUDE">
         <MappingFragment StoreEntitySet="CHUDE">
           <ScalarProperty Name="MaCD" ColumnName="MaCD" />
           <ScalarProperty Name="TenCD" ColumnName="TenCD" />
@@ -28,26 +28,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DOCGIAs">
-      <EntityTypeMapping TypeName="QLTVModel.DOCGIA">
+      <EntityTypeMapping TypeName="QLThuVienModel.DOCGIA">
         <MappingFragment StoreEntitySet="DOCGIA">
           <ScalarProperty Name="MaDG" ColumnName="MaDG" />
           <ScalarProperty Name="TenDG" ColumnName="TenDG" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="LoaiSaches">
-      <EntityTypeMapping TypeName="QLTVModel.LoaiSach">
-        <MappingFragment StoreEntitySet="LoaiSach">
-          <ScalarProperty Name="MaLoaiSach" ColumnName="MaLoaiSach" />
-          <ScalarProperty Name="TenLoaiSach" ColumnName="TenLoaiSach" />
+          <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NXBs">
-      <EntityTypeMapping TypeName="QLTVModel.NXB">
+      <EntityTypeMapping TypeName="QLThuVienModel.NXB">
         <MappingFragment StoreEntitySet="NXB">
           <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
           <ScalarProperty Name="TenNXB" ColumnName="TenNXB" />
@@ -57,16 +51,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PhieuMuonSaches">
-      <EntityTypeMapping TypeName="QLTVModel.PhieuMuonSach">
+      <EntityTypeMapping TypeName="QLThuVienModel.PhieuMuonSach">
         <MappingFragment StoreEntitySet="PhieuMuonSach">
           <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
           <ScalarProperty Name="MaDG" ColumnName="MaDG" />
           <ScalarProperty Name="NgayMuon" ColumnName="NgayMuon" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaSach" ColumnName="MaSach" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PhieuThus">
-      <EntityTypeMapping TypeName="QLTVModel.PhieuThu">
+      <EntityTypeMapping TypeName="QLThuVienModel.PhieuThu">
         <MappingFragment StoreEntitySet="PhieuThu">
           <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
           <ScalarProperty Name="MaDG" ColumnName="MaDG" />
@@ -75,21 +71,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SACHes">
-      <EntityTypeMapping TypeName="QLTVModel.SACH">
+      <EntityTypeMapping TypeName="QLThuVienModel.SACH">
         <MappingFragment StoreEntitySet="SACH">
           <ScalarProperty Name="Masach" ColumnName="Masach" />
           <ScalarProperty Name="Tensach" ColumnName="Tensach" />
-          <ScalarProperty Name="MaLoaiSach" ColumnName="MaLoaiSach" />
           <ScalarProperty Name="Mota" ColumnName="Mota" />
           <ScalarProperty Name="Hinhminhhoa" ColumnName="Hinhminhhoa" />
           <ScalarProperty Name="MaCD" ColumnName="MaCD" />
           <ScalarProperty Name="MaNXB" ColumnName="MaNXB" />
+          <ScalarProperty Name="SoLuongCon" ColumnName="SoLuongCon" />
           <ScalarProperty Name="Ngaycapnhat" ColumnName="Ngaycapnhat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TACGIAs">
-      <EntityTypeMapping TypeName="QLTVModel.TACGIA">
+      <EntityTypeMapping TypeName="QLThuVienModel.TACGIA">
         <MappingFragment StoreEntitySet="TACGIA">
           <ScalarProperty Name="MaTG" ColumnName="MaTG" />
           <ScalarProperty Name="TenTG" ColumnName="TenTG" />
@@ -99,7 +95,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VIETSACHes">
-      <EntityTypeMapping TypeName="QLTVModel.VIETSACH">
+      <EntityTypeMapping TypeName="QLThuVienModel.VIETSACH">
         <MappingFragment StoreEntitySet="VIETSACH">
           <ScalarProperty Name="MaTG" ColumnName="MaTG" />
           <ScalarProperty Name="Masach" ColumnName="Masach" />

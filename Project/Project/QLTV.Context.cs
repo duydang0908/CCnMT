@@ -13,10 +13,10 @@ namespace Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLTVEntities : DbContext
+    public partial class QLThuVienEntities : DbContext
     {
-        public QLTVEntities()
-            : base("name=QLTVEntities")
+        public QLThuVienEntities()
+            : base("name=QLThuVienEntities")
         {
         }
     
@@ -29,7 +29,6 @@ namespace Project
         public virtual DbSet<BaoCaoMuonSach> BaoCaoMuonSaches { get; set; }
         public virtual DbSet<CHUDE> CHUDEs { get; set; }
         public virtual DbSet<DOCGIA> DOCGIAs { get; set; }
-        public virtual DbSet<LoaiSach> LoaiSaches { get; set; }
         public virtual DbSet<NXB> NXBs { get; set; }
         public virtual DbSet<PhieuMuonSach> PhieuMuonSaches { get; set; }
         public virtual DbSet<PhieuThu> PhieuThus { get; set; }

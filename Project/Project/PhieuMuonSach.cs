@@ -17,7 +17,10 @@ namespace Project
         public int MaPhieuMuon { get; set; }
         public Nullable<int> MaDG { get; set; }
         public Nullable<System.DateTime> NgayMuon { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<int> MaSach { get; set; }
     
         public virtual DOCGIA DOCGIA { get; set; }
+        public virtual SACH SACH { get; set; }
     }
 }

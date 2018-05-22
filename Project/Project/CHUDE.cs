@@ -17,12 +17,15 @@ namespace Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CHUDE()
         {
+            this.BaoCaoMuonSaches = new HashSet<BaoCaoMuonSach>();
             this.SACHes = new HashSet<SACH>();
         }
     
         public int MaCD { get; set; }
         public string TenCD { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BaoCaoMuonSach> BaoCaoMuonSaches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SACH> SACHes { get; set; }
     }

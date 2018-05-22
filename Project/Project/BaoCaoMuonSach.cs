@@ -15,9 +15,9 @@ namespace Project
     public partial class BaoCaoMuonSach
     {
         public int MaBaoCaoMuonSach { get; set; }
-        public Nullable<int> MaLoaiSach { get; set; }
+        public Nullable<int> MaCD { get; set; }
         public Nullable<int> SoLuotMuon { get; set; }
     
-        public virtual LoaiSach LoaiSach { get; set; }
+        public virtual CHUDE CHUDE { get; set; }
     }
 }
