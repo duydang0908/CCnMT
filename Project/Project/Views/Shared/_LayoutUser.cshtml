@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>eBay Template Designed by mMehedi Hasan Rony</title>
+    <title>Thư Viện DnK</title>
     <link href="~/Content/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -13,35 +13,38 @@
 
                 </div>
                 <div id="search_area">
-                    <input id="text_Area" type="text" placeholder="Search.." />
-                    <input id="button" type="button" value="search" />
-                </div>
+                    @using (Html.BeginForm("Index", "Library", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form", onsubmit = "return empty();" }))
+                    {
 
+                        <input id="text_Area" type="text" placeholder="Tìm kiếm theo tên sách" name="SearchString" />
+                        <input id="button" type="submit" value="search" />
+                    }
+                </div>
             </div>
+
             <div id="nav_area">
                 <ul>
+                    <li><a href="@Url.Action("Index","Library")">Home</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                    <li><a href="@Url.Action("About","Home")">About</a></li>
+                    <li><a href="@Url.Action("Index","QLSach")">Trang Admin</a></li>
 
-
-                    <li><a href="#">eBay Shop</li></a>
-                    <li><a href="#">Feedback</li></a>
-                    <li><a href="#">Add to Favorites</li></a>
-                    <li><a href="#">About Us</li></a>
-                    <li style="font-size:15pt">
-                        @Html.Action("GiohangPartial", "Order")
-                    </li>
                     @*<li><a href="#">Contact Us</li></a>*@
 
 
                     @if (Session["Taikhoan"] == null)
-    {
-                <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
+                    {
+                        <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
 
-}
-else
-{
-                <li style="font-size:15px;font-weight:bold">Hello, @Session["Taikhoan"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
+                    }
+                    else
+                    {
+                        <li style="font-size:15px;font-weight:bold">Hello, @Session["TenDG"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
 
-}
+                    }
+                    <li style="font-size:15pt">
+                        @Html.Action("GiohangPartial", "Order")
+                    </li>
                 </ul>
             </div><!--end nav area-->
 
@@ -50,10 +53,7 @@ else
                     <h2>Chủ đề sách</h2>
                     <ul>
                         @Html.Action("Chude", "Library")
-                        @*<li><a href="#">Fashio Item</li></a>
-                            <li><a href="#">Beauty Product</li></a>
-                            <li><a href="#">I Phone</li></a>
-                            <li><a href="#">Other's Item</li></a>*@
+                        
                     </ul>
                 </div><!--end catagories-->
 
@@ -62,33 +62,14 @@ else
                     <h2>NXB</h2>
                     <ul>
                         @Html.Action("NXB", "Library")
-                        @*<li><a href="#">Fashio Item</li></a>
-                            <li><a href="#">Beauty Product</li></a>
-                            <li><a href="#">I Phone</li></a>
-                            <li><a href="#">Other's Item</li></a>*@
                     </ul>
                 </div><!--end catagories-->
-                @*<div id="payment_area">
-
-                        <h2>Payments</h2>
-                        <a class="links" href="#"><img src="~/images/payoneer.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/skrill.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/mastercard.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/americanexpress.jpg"></a>
-                    </div><!--end payments area-->
-
-                    <div id="Shipping">
-                        <h2>Shipping</h2>
-                        <a class="links" href="#"><img src="~/images/ups.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/fedex.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/dhl.jpg"></a>
-                        <a class="links" href="#"><img src="~/images/americanexpress.jpg"></a>
-                    </div><!--end shipping area-->*@
+                
                 <div id="contact">
                     <h2>Contact Us</h2>
                     <p>
-                        Address:<br />
-                        39 United States.
+                        Địa chỉ:<br />
+                        155 SVH nối dài, quận 10, TPHCM
                         <br />
                         Phone: +880-1682651827
                     </p>
@@ -104,16 +85,14 @@ else
             <div id="footer_area">
 
                 <ul>
-                    <li><a href="#">eBay Shop</li></a>
-                    <li><a href="#">Feedback</li></a>
-                    <li><a href="#">Add to Favorites</li></a>
-                    <li><a href="#">About Us</li></a>
-                    <li><a href="#">Contact Us</li></a>
+                    <li><a href="@Url.Action("Index","Library")">Home</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+                    <li><a href="@Url.Action("About","Home")">About</a></li>
                 </ul>
                 <p>
-                    Copyright &copy; 2014
+                    Copyleft &copy; 2018
                     <br />
-                    Smartdesigner007@gmail.com
+                    xxx@gmail.com
                 </p>
             </div>
         </div><!--end of right area-->

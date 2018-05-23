@@ -1,9 +1,22 @@
-﻿
-@model IEnumerable<Project.SACH>
+﻿@model IEnumerable<Project.SACH>
 @{
     ViewBag.Title = "sachTheoNXB";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+
 <table class="table">
     @*<tr>
             <th>
@@ -39,7 +52,8 @@
             </div>
             <ul>
                 <li><p style="color:red">Tên sách:</p> @Html.DisplayFor(modelItem => item.Tensach)</li>
-                <li><p style="color:red">Mô tả:</p> @Html.DisplayFor(modelItem => item.Mota)</li>
+                <li><p style="color:red">Mô tả:</p>@Truncate(item.Mota, 10)</li>
+                <li><p style="color:red">Số lượng còn :</p> @item.SoLuongCon</li>
                 <li>
                     <p style="color:red">Tên NXB:</p> @Html.DisplayFor(modelItem => item.NXB.TenNXB)
                 </li>

@@ -24,15 +24,14 @@
                     <li>@Html.ActionLink("Quản lý mượn sách", "Index", "PhieuMuonSaches")</li>
                     <li>@Html.ActionLink("Quản lý sách", "Index", "QLSach")</li>
                     <li>@Html.ActionLink("Báo cáo mượn sách", "Index", "BaoCaoMuonSaches")</li>
-                    @if (Session["Taikhoanadmin"] != null)
-                    {
-                        <li>@Html.ActionLink("Đăng xuất", "Logout", "Admin")</li>
-                    }
+                    
                 </ul>
+                
             </div>
         </div>
     </div>
     <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer>

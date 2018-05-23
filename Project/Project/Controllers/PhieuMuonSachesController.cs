@@ -16,6 +16,7 @@ namespace Project.Controllers
         private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: PhieuMuonSaches
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var phieuMuonSaches = db.PhieuMuonSaches.Include(p => p.DOCGIA);

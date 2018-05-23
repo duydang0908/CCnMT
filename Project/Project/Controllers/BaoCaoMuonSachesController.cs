@@ -16,6 +16,7 @@ namespace Project.Controllers
         private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: BaoCaoMuonSaches
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var baoCaoMuonSaches = db.BaoCaoMuonSaches.Include(b => b.CHUDE);

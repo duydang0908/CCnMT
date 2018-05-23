@@ -53,8 +53,9 @@
                 <img src="~/images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" height="200" width="200" />
             </div>
             <ul>
-                <li><p style="color:red">Tên sách:</p> @Truncate(item.Mota, 25)</li>
+                <li><p style="color:red">Tên sách:</p> @Truncate(item.Tensach, 25)</li>
                 <li><p style="color:red">Mô tả:</p>@Truncate(item.Mota, 10)</li>
+                <li><p style="color:red">Số lượng còn :</p> @item.SoLuongCon</li>
                 <li>
                     <p style="color:red">Tên NXB:</p> @Html.DisplayFor(modelItem => item.NXB.TenNXB)
                 </li>

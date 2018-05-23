@@ -4,7 +4,8 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div style="text-align:left">Hello, Administrator</div>
+<a href="~/Admin/Logout">Logout</a>
 <h2>QUẢN LÝ MƯỢN SÁCH</h2>
 </p>
 <table class="table" border="1">
@@ -18,20 +19,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NgayMuon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DOCGIA.TenDG)
-        </td>
-        <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.MaPhieuMuon }) |
-            @Html.ActionLink("Chi tiết", "Index","CT_PhieuMuonSach") |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.MaPhieuMuon })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayMuon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOCGIA.TenDG)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaPhieuMuon }) |
+                @Html.ActionLink("Chi tiết", "Index", "CT_PhieuMuonSach") |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaPhieuMuon })
+            </td>
+        </tr>
+    }
 
 </table>

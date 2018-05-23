@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div style="text-align:left">Hello, Administrator</div>
+<a href="~/Views/Admin/Logout">Logout</a>
 <h2>Báo cáo mượn sách</h2>
-
 <table class="table" border="1">
     <tr>
         <th>
@@ -18,18 +19,19 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuotMuon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CHUDE.TenCD)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaBaoCaoMuonSach })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuotMuon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenCD)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaBaoCaoMuonSach })
+            </td>
+        </tr>
+    }
 
 </table>

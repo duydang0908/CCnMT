@@ -16,6 +16,7 @@ namespace Project.Controllers
         private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: CT_PhieuMuonSach
+        [Authorize]
         public async Task<ActionResult> Index()
         {
             var cT_PhieuMuonSach = db.CT_PhieuMuonSach.Include(c => c.PhieuMuonSach).Include(c => c.SACH);

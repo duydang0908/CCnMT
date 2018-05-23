@@ -19,6 +19,7 @@ namespace Project.Controllers
         private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: DOCGIAs
+        [Authorize]
         public async Task<ActionResult> Index(int ? page)
         {
             int pageNumber = (page ?? 1);

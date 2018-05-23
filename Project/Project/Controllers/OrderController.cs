@@ -20,7 +20,7 @@ namespace Project.Controllers
             }
             return lstOrder;
         }
-
+        
         // GET: Order
         public ActionResult Index()
         {
@@ -103,7 +103,7 @@ namespace Project.Controllers
         {
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
                 return RedirectToAction("Login", "Library");
-            if (Session["Giohang"] == null)
+            if (Session["Order"] == null)
                 return RedirectToAction("Index", "Library");
             List<Order> lstOrder = Layorder();
             ViewBag.Tongsoluong = tongSoLuong();
@@ -130,7 +130,7 @@ namespace Project.Controllers
                 data.SaveChanges();
             }
             data.SaveChanges();
-            Session["Giohang"] = null;
+            Session["Order"] = null;
             return RedirectToAction("Xacnhandonhang", "Order");
         }
 
