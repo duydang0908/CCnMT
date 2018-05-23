@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Project.PhieuMuonSach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QUẢN LÝ MƯỢN SÁCH</h2>
+</p>
+<table class="table" border="1">
+    <tr>
+        <th>
+            Ngày mượn
+        </th>
+        <th>
+            Tên đọc giả
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayMuon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOCGIA.TenDG)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaPhieuMuon }) |
+            @Html.ActionLink("Chi tiết", "Index","CT_PhieuMuonSach") |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaPhieuMuon })
+        </td>
+    </tr>
+}
+
+</table>

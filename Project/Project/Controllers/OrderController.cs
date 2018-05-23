@@ -8,7 +8,7 @@ namespace Project.Controllers
 {
     public class OrderController : Controller
     {
-        QLThuVienEntities data = new QLThuVienEntities();
+        QLThuVienEntities1 data = new QLThuVienEntities1();
 
         public List<Order> Layorder()
         {
@@ -103,7 +103,7 @@ namespace Project.Controllers
         {
             if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
                 return RedirectToAction("Login", "Library");
-            if (Session["Order"] == null)
+            if (Session["Giohang"] == null)
                 return RedirectToAction("Index", "Library");
             List<Order> lstOrder = Layorder();
             ViewBag.Tongsoluong = tongSoLuong();
@@ -126,11 +126,11 @@ namespace Project.Controllers
                 ctpms.MaPhieuMuon = pms.MaPhieuMuon;
                 ctpms.Masach = item.iMasach;
                 ctpms.SoLuong = item.iSL;
-                data.CT_PhieuMuonSach.Add(ctpms);
+                data.PhieuMuonSaches.Add(pms);
                 data.SaveChanges();
             }
             data.SaveChanges();
-            Session["Order"] = null;
+            Session["Giohang"] = null;
             return RedirectToAction("Xacnhandonhang", "Order");
         }
 

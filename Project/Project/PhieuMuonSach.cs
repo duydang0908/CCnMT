@@ -24,8 +24,8 @@ namespace Project
         public Nullable<int> MaDG { get; set; }
         public Nullable<System.DateTime> NgayMuon { get; set; }
     
+        public virtual DOCGIA DOCGIA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PhieuMuonSach> CT_PhieuMuonSach { get; set; }
-        public virtual DOCGIA DOCGIA { get; set; }
     }
 }

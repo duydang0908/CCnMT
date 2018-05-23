@@ -44,13 +44,6 @@
     <Property Name="TenDN" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="MatKhau" Type="varchar" MaxLength="20" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'QLThuVien.dbo.NhapSach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="NhapSach">
-          <Property Name="Masach" Type="int" />
-          <Property Name="NgayNhap" Type="int" />
-          <Property Name="TriGia" Type="int" />
-        </EntityType>-->
   <EntityType Name="NXB">
     <Key>
       <PropertyRef Name="MaNXB" />
@@ -99,14 +92,6 @@ warning 6013: The table/view 'QLThuVien.dbo.NhapSach' does not have a primary ke
     <Property Name="DienthoaiTG" Type="varchar" MaxLength="15" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6013: The table/view 'QLThuVien.dbo.TraSach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="TraSach">
-          <Property Name="MaPhieuMuon" Type="int" />
-          <Property Name="Masach" Type="int" />
-          <Property Name="NgayTra" Type="datetime" />
-          <Property Name="TienPhat" Type="money" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
 warning 6002: The table/view 'QLThuVien.dbo.VIETSACH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="VIETSACH">
     <Key>
@@ -153,9 +138,6 @@ warning 6002: The table/view 'QLThuVien.dbo.VIETSACH' does not have a primary ke
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'QLThuVien.dbo.NhapSach' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__NhapSach__Masach__1DE57479" />-->
   <Association Name="FK__PhieuMuonS__MaDG__20C1E124">
     <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
     <End Role="PhieuMuonSach" Type="Self.PhieuMuonSach" Multiplicity="*" />
@@ -204,12 +186,6 @@ error 6004: The table 'QLThuVien.dbo.NhapSach' is referenced by a relationship, 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__TraSach__MaPhieu__22AA2996" />-->
-  <!--Errors Found During Generation:
-error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, but cannot be found.
-        <Association Name="FK__TraSach__Masach__239E4DCF" />-->
   <Association Name="FK__VIETSACH__Masach__1BFD2C07">
     <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
     <End Role="VIETSACH" Type="Self.VIETSACH" Multiplicity="*" />

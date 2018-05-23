@@ -1,0 +1,82 @@
+﻿@using Project
+@using PagedList.Mvc;
+@model PagedList.PagedList<Project.SACH>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>QUẢN LÝ SÁCH</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table" border="1">
+    <tr style="text-align:center">
+        <th style="text-align:center">
+            Tên sách
+        </th>
+        <th style="text-align:center">
+            Mô tả
+        </th>
+        <th style="text-align:center">
+            Hình minh họa
+        </th>
+        <th style="text-align:center">
+            Số Lượng còn
+        </th>
+        <th style="text-align:center">
+            Ngày cập nhật
+        </th>
+        <th style="text-align:center">
+            Tên chủ đề
+        </th>
+        <th style="text-align:center">
+            Nhà xuất bản
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center">
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                <img src="@Url.Content("~/images/"+ item.Hinhminhhoa)" width="100px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongCon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NXB.TenNXB)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Masach }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Masach }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Masach })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

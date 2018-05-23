@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Thư Viện D & K</title>
+    <title>eBay Template Designed by mMehedi Hasan Rony</title>
     <link href="~/Content/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -13,24 +13,19 @@
 
                 </div>
                 <div id="search_area">
-                    @using (Html.BeginForm("Index", "Library", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form", onsubmit = "return empty();" }))
-                    {
-                        <p style="text-align:match-parent;color:white">Tìm kiếm theo tên sách</p>
-                        <input id="text_Area" type="text" placeholder="Tìm kiếm.." name="SearchString" />
-                        <input id="button" type="submit" value="Tìm kiếm" />
-                    }
+                    <input id="text_Area" type="text" placeholder="Search.." />
+                    <input id="button" type="button" value="search" />
                 </div>
-                
-                   
-             
+
             </div>
             <div id="nav_area">
                 <ul>
 
 
-                    <li><a href="@Url.Action("Index", "Library")">Home</li></a>
-                    <li><a href="@Url.Action("About", "Library")">About Us</li></a>
-                    <li><a href="@Url.Action("Contact", "Library")">Contact Us</li></a>
+                    <li><a href="#">eBay Shop</li></a>
+                    <li><a href="#">Feedback</li></a>
+                    <li><a href="#">Add to Favorites</li></a>
+                    <li><a href="#">About Us</li></a>
                     <li style="font-size:15pt">
                         @Html.Action("GiohangPartial", "Order")
                     </li>
@@ -38,15 +33,15 @@
 
 
                     @if (Session["Taikhoan"] == null)
-                    {
-                        <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
+    {
+                <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
 
-                    }
-                    else
-                    {
-                        <li style="font-size:15px;font-weight:bold">Hello, @Session["HoTen"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
+}
+else
+{
+                <li style="font-size:15px;font-weight:bold">Hello, @Session["Taikhoan"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
 
-                    }
+}
                 </ul>
             </div><!--end nav area-->
 
@@ -92,10 +87,10 @@
                 <div id="contact">
                     <h2>Contact Us</h2>
                     <p>
-                        Địa chỉ:<br />
-                        155 Đường Sư Vạn Hạnh, Phường 13, Quận 10, Thành Phố Hồ Chí Minh
+                        Address:<br />
+                        39 United States.
                         <br />
-                        Phone: 09165765xx
+                        Phone: +880-1682651827
                     </p>
                 </div><!--end contact area-->
             </div><!--end left_side area-->
@@ -109,14 +104,16 @@
             <div id="footer_area">
 
                 <ul>
-                    <li><a href="@Url.Action("Index", "Library")">Home</li></a>
-                    <li><a href="@Url.Action("About", "Library")">About Us</li></a>
-                    <li><a href="@Url.Action("Contact", "Library")">Contact Us</li></a>
+                    <li><a href="#">eBay Shop</li></a>
+                    <li><a href="#">Feedback</li></a>
+                    <li><a href="#">Add to Favorites</li></a>
+                    <li><a href="#">About Us</li></a>
+                    <li><a href="#">Contact Us</li></a>
                 </ul>
                 <p>
-                    Copyright &copy; 2018
+                    Copyright &copy; 2014
                     <br />
-                    duydang09xx@gmail.com
+                    Smartdesigner007@gmail.com
                 </p>
             </div>
         </div><!--end of right area-->

@@ -15,27 +15,19 @@ namespace Project.Controllers
 {
     public class LibraryController : Controller
     {
-        QLThuVienEntities data = new QLThuVienEntities();
+        QLThuVienEntities1 data = new QLThuVienEntities1();
 
-        private QLThuVienEntities db = new QLThuVienEntities();
+        private QLThuVienEntities1 db = new QLThuVienEntities1();
 
         // GET: Library
-        //public async Task<ActionResult> Index(int ?page, string searchString)
-        public ActionResult Index(int? page, string searchString)
+        public async Task<ActionResult> Index(int ?page)
         {
-            var sp = from e in db.SACHes select e;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                sp = sp.Where(s => s.Tensach.Contains(searchString));
-            }
-            ViewBag.SeachString = searchString;
             //var sACHes = db.SACHes.Include(s => s.CHUDE).Include(s => s.LoaiSach).Include(s => s.NXB);
             //return View(await sACHes.ToListAsync());
             int pageSize = 5;
             int pageNum = (page ?? 1);
             var sachmoi = Laysachmoi(15);
-            //return View(sachmoi.ToPagedList(pageNum, pageSize));
-            return View(sp.ToList().OrderBy(n => n.Masach).ToPagedList(pageNum, pageSize));
+            return View(sachmoi.ToPagedList(pageNum, pageSize));
         }
 
         // GET: Library/Details/5
@@ -57,7 +49,7 @@ namespace Project.Controllers
         public ActionResult Create()
         {
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD");
-
+            
             ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB");
             return View();
         }
@@ -77,7 +69,7 @@ namespace Project.Controllers
             }
 
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD", sACH.MaCD);
-
+            
             return View(sACH);
         }
 
@@ -112,7 +104,7 @@ namespace Project.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MaCD = new SelectList(db.CHUDEs, "MaCD", "TenCD", sACH.MaCD);
-
+           
             ViewBag.MaNXB = new SelectList(db.NXBs, "MaNXB", "TenNXB", sACH.MaNXB);
             return View(sACH);
         }
@@ -176,7 +168,7 @@ namespace Project.Controllers
         }
         public ActionResult sachTheoNXB(int id)
         {
-            var sach = from s in data.SACHes where s.MaNXB == id select s;
+            var sach = from s in data.NXBs where s.MaNXB == id select s;
             return View(sach);
         }
 
@@ -200,8 +192,7 @@ namespace Project.Controllers
                     if (dg != null)
                     {
                         ViewBag.Thongbao = "Đăng nhập thành công";
-                        Session["Taikhoan"] = dg;
-                        Session["HoTen"] = dg.TenDG;
+                        Session["Taikhoan"] = dg.TenDG;
                         return RedirectToAction("Index", "Library");
                     }
                     else
@@ -210,20 +201,12 @@ namespace Project.Controllers
             }
             return View();
         }
-
+        
         public ActionResult Logout()
         {
             Session.Clear();
             return RedirectToAction("Index", "Library");
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
-        public ActionResult Contact()
-        {
-            return View();
-        }
     }
 }
