@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Project.SACH>
+@{
+    ViewBag.Title = "sachTheochude";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <div id="product_container">
+
+            <div id="images">
+                <img src="~/images/@Html.DisplayFor(modelItem => item.Hinhminhhoa)" height="200" width="200" />
+            </div>
+            <ul>
+                <li><p style="color:red">Tên sách:</p> @Html.DisplayFor(modelItem => item.Tensach)</li>
+                <li><p style="color:red">Mô tả:</p>@Truncate(item.Mota, 10)</li>
+                <li>
+                    <p style="color:red">Tên NXB:</p> @Html.DisplayFor(modelItem => item.NXB.TenNXB)
+                </li>
+                <li>@Html.ActionLink("Details", "Details", new { id = item.Masach })</li>
+            </ul>
+        </div>
+    }
+
+</table>
+

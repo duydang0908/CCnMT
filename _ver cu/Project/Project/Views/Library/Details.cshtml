@@ -1,0 +1,57 @@
+﻿@model Project.SACH
+
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: limegreen;
+        color: black;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: left;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        position:center;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: firebrick;
+        }
+</style>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h1 style="text-align:center; font-weight:bold">Thông tin sách</h1>
+
+<div>
+    <div style="width:40%; float:initial;border-left:dotted 1px;border-color:azure">
+        <img src="~/images/@Model.Hinhminhhoa" style="width:300px ; height:300px" />
+    </div>
+    <div style="width:60%;float:left;padding:10px">
+        <h2 style="font-weight:bold;color:red">Tên sách: @Model.Tensach</h2>
+        <p style="text-align:justify"><span style="font-weight:bold;color:navy">Mô tả: </span></p><p>@Model.Mota</p>
+
+        <p style="text-align:justify"><span style="font-weight:bold; color:navy">Số lượng: </span>@Model.SoLuongCon</p>
+
+        <p style="text-align:justify"><span style="font-weight:bold; color:navy">NXB: </span>@Model.NXB.TenNXB</p>
+
+        <div id="Datmua" style="align-content:center">
+            <a href="@Url.Action("ThemGioHang","Order",new {  @iMasach = Model.Masach, @strUrl = Request.Url.ToString()})">
+                Lấy sách
+            </a>
+        </div><br />
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Masach }) |*@
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+            
+       
+</div>
+
+
