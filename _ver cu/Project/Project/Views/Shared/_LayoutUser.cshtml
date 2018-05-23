@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Thư Viện D & K</title>
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div id="conatiner">
+            <div id="header">
+                <div id="logo">
+
+                </div>
+                <div id="search_area">
+                    @using (Html.BeginForm("Index", "Library", FormMethod.Get, new { @class = "navbar-form navbar-right", role = "search", id = "search-form", onsubmit = "return empty();" }))
+                    {
+                        <p style="text-align:match-parent;color:white">Tìm kiếm theo tên sách</p>
+                        <input id="text_Area" type="text" placeholder="Tìm kiếm.." name="SearchString" />
+                        <input id="button" type="submit" value="Tìm kiếm" />
+                    }
+                </div>
+                
+                   
+             
+            </div>
+            <div id="nav_area">
+                <ul>
+
+
+                    <li><a href="@Url.Action("Index", "Library")">Home</li></a>
+                    <li><a href="@Url.Action("About", "Library")">About Us</li></a>
+                    <li><a href="@Url.Action("Contact", "Library")">Contact Us</li></a>
+                    <li style="font-size:15pt">
+                        @Html.Action("GiohangPartial", "Order")
+                    </li>
+                    @*<li><a href="#">Contact Us</li></a>*@
+
+
+                    @if (Session["Taikhoan"] == null)
+                    {
+                        <li><a href="@Url.Action("Login", "Library")">LOGIN </a> </li>
+
+                    }
+                    else
+                    {
+                        <li style="font-size:15px;font-weight:bold">Hello, @Session["HoTen"].ToString() | <a href="@Url.Action("Logout", "Library")">LOGOUT </a> </li>
+
+                    }
+                </ul>
+            </div><!--end nav area-->
+
+            <div id="left_side">
+                <div id="catagories">
+                    <h2>Chủ đề sách</h2>
+                    <ul>
+                        @Html.Action("Chude", "Library")
+                        @*<li><a href="#">Fashio Item</li></a>
+                            <li><a href="#">Beauty Product</li></a>
+                            <li><a href="#">I Phone</li></a>
+                            <li><a href="#">Other's Item</li></a>*@
+                    </ul>
+                </div><!--end catagories-->
+
+
+                <div id="catagories">
+                    <h2>NXB</h2>
+                    <ul>
+                        @Html.Action("NXB", "Library")
+                        @*<li><a href="#">Fashio Item</li></a>
+                            <li><a href="#">Beauty Product</li></a>
+                            <li><a href="#">I Phone</li></a>
+                            <li><a href="#">Other's Item</li></a>*@
+                    </ul>
+                </div><!--end catagories-->
+                @*<div id="payment_area">
+
+                        <h2>Payments</h2>
+                        <a class="links" href="#"><img src="~/images/payoneer.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/skrill.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/mastercard.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/americanexpress.jpg"></a>
+                    </div><!--end payments area-->
+
+                    <div id="Shipping">
+                        <h2>Shipping</h2>
+                        <a class="links" href="#"><img src="~/images/ups.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/fedex.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/dhl.jpg"></a>
+                        <a class="links" href="#"><img src="~/images/americanexpress.jpg"></a>
+                    </div><!--end shipping area-->*@
+                <div id="contact">
+                    <h2>Contact Us</h2>
+                    <p>
+                        Địa chỉ:<br />
+                        155 Đường Sư Vạn Hạnh, Phường 13, Quận 10, Thành Phố Hồ Chí Minh
+                        <br />
+                        Phone: 09165765xx
+                    </p>
+                </div><!--end contact area-->
+            </div><!--end left_side area-->
+
+            <div id="right_side">
+
+                @RenderBody()
+
+            </div><!--end of our product area-->
+            <div id="additional_area"> </div>
+            <div id="footer_area">
+
+                <ul>
+                    <li><a href="@Url.Action("Index", "Library")">Home</li></a>
+                    <li><a href="@Url.Action("About", "Library")">About Us</li></a>
+                    <li><a href="@Url.Action("Contact", "Library")">Contact Us</li></a>
+                </ul>
+                <p>
+                    Copyright &copy; 2018
+                    <br />
+                    duydang09xx@gmail.com
+                </p>
+            </div>
+        </div><!--end of right area-->
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Project.CHUDE>
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("sachTheochude", "Library",new { id = item.MaCD })">
+            @item.TenCD
+        </a>
+    </li>
+}

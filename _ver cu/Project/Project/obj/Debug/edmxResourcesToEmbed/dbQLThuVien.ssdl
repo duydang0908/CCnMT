@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLThuVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="UserAdmin" />
+    </Key>
+    <Property Name="UserAdmin" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PassAdmin" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BaoCaoMuonSach">
+    <Key>
+      <PropertyRef Name="MaBaoCaoMuonSach" />
+    </Key>
+    <Property Name="MaBaoCaoMuonSach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaCD" Type="int" />
+    <Property Name="SoLuotMuon" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUDE">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCD" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_PhieuMuonSach">
+    <Key>
+      <PropertyRef Name="MaPhieuMuon" />
+      <PropertyRef Name="Masach" />
+    </Key>
+    <Property Name="MaPhieuMuon" Type="int" Nullable="false" />
+    <Property Name="Masach" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="DOCGIA">
+    <Key>
+      <PropertyRef Name="MaDG" />
+    </Key>
+    <Property Name="MaDG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDG" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="DienThoai" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="TenDN" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MatKhau" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QLThuVien.dbo.NhapSach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NhapSach">
+          <Property Name="Masach" Type="int" />
+          <Property Name="NgayNhap" Type="int" />
+          <Property Name="TriGia" Type="int" />
+        </EntityType>-->
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="MaNXB" />
+    </Key>
+    <Property Name="MaNXB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNXB" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="150" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="PhieuMuonSach">
+    <Key>
+      <PropertyRef Name="MaPhieuMuon" />
+    </Key>
+    <Property Name="MaPhieuMuon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDG" Type="int" />
+    <Property Name="NgayMuon" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PhieuThu">
+    <Key>
+      <PropertyRef Name="MaPhieu" />
+    </Key>
+    <Property Name="MaPhieu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDG" Type="int" />
+    <Property Name="SoTienThu" Type="money" />
+  </EntityType>
+  <EntityType Name="SACH">
+    <Key>
+      <PropertyRef Name="Masach" />
+    </Key>
+    <Property Name="Masach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tensach" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mota" Type="ntext" />
+    <Property Name="Hinhminhhoa" Type="varchar" MaxLength="50" />
+    <Property Name="MaCD" Type="int" />
+    <Property Name="MaNXB" Type="int" />
+    <Property Name="SoLuongCon" Type="int" />
+    <Property Name="Ngaycapnhat" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TACGIA">
+    <Key>
+      <PropertyRef Name="MaTG" />
+    </Key>
+    <Property Name="MaTG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTG" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiachiTG" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienthoaiTG" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'QLThuVien.dbo.TraSach' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TraSach">
+          <Property Name="MaPhieuMuon" Type="int" />
+          <Property Name="Masach" Type="int" />
+          <Property Name="NgayTra" Type="datetime" />
+          <Property Name="TienPhat" Type="money" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLThuVien.dbo.VIETSACH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VIETSACH">
+    <Key>
+      <PropertyRef Name="MaTG" />
+      <PropertyRef Name="Masach" />
+    </Key>
+    <Property Name="MaTG" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Masach" Type="int" Nullable="false" />
+    <Property Name="Vaitro" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__BaoCaoMuon__MaCD__29572725">
+    <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+    <End Role="BaoCaoMuonSach" Type="Self.BaoCaoMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDE">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="BaoCaoMuonSach">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PhieuM__MaPhi__2F10007B">
+    <End Role="PhieuMuonSach" Type="Self.PhieuMuonSach" Multiplicity="1" />
+    <End Role="CT_PhieuMuonSach" Type="Self.CT_PhieuMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuMuonSach">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Principal>
+      <Dependent Role="CT_PhieuMuonSach">
+        <PropertyRef Name="MaPhieuMuon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CT_PhieuM__Masac__300424B4">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="CT_PhieuMuonSach" Type="Self.CT_PhieuMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="Masach" />
+      </Principal>
+      <Dependent Role="CT_PhieuMuonSach">
+        <PropertyRef Name="Masach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'QLThuVien.dbo.NhapSach' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__NhapSach__Masach__1DE57479" />-->
+  <Association Name="FK__PhieuMuonS__MaDG__20C1E124">
+    <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
+    <End Role="PhieuMuonSach" Type="Self.PhieuMuonSach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCGIA">
+        <PropertyRef Name="MaDG" />
+      </Principal>
+      <Dependent Role="PhieuMuonSach">
+        <PropertyRef Name="MaDG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhieuThu__MaDG__267ABA7A">
+    <End Role="DOCGIA" Type="Self.DOCGIA" Multiplicity="0..1" />
+    <End Role="PhieuThu" Type="Self.PhieuThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCGIA">
+        <PropertyRef Name="MaDG" />
+      </Principal>
+      <Dependent Role="PhieuThu">
+        <PropertyRef Name="MaDG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__MaCD__164452B1">
+    <End Role="CHUDE" Type="Self.CHUDE" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUDE">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SACH__MaNXB__173876EA">
+    <End Role="NXB" Type="Self.NXB" Multiplicity="0..1" />
+    <End Role="SACH" Type="Self.SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="MaNXB" />
+      </Principal>
+      <Dependent Role="SACH">
+        <PropertyRef Name="MaNXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__TraSach__MaPhieu__22AA2996" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'QLThuVien.dbo.TraSach' is referenced by a relationship, but cannot be found.
+        <Association Name="FK__TraSach__Masach__239E4DCF" />-->
+  <Association Name="FK__VIETSACH__Masach__1BFD2C07">
+    <End Role="SACH" Type="Self.SACH" Multiplicity="1" />
+    <End Role="VIETSACH" Type="Self.VIETSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SACH">
+        <PropertyRef Name="Masach" />
+      </Principal>
+      <Dependent Role="VIETSACH">
+        <PropertyRef Name="Masach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VIETSACH__MaTG__1B0907CE">
+    <End Role="TACGIA" Type="Self.TACGIA" Multiplicity="1" />
+    <End Role="VIETSACH" Type="Self.VIETSACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TACGIA">
+        <PropertyRef Name="MaTG" />
+      </Principal>
+      <Dependent Role="VIETSACH">
+        <PropertyRef Name="MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLThuVienModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaoCaoMuonSach" EntityType="Self.BaoCaoMuonSach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUDE" EntityType="Self.CHUDE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CT_PhieuMuonSach" EntityType="Self.CT_PhieuMuonSach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCGIA" EntityType="Self.DOCGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NXB" EntityType="Self.NXB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuMuonSach" EntityType="Self.PhieuMuonSach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuThu" EntityType="Self.PhieuThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SACH" EntityType="Self.SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TACGIA" EntityType="Self.TACGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VIETSACH" EntityType="Self.VIETSACH" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VIETSACH].[MaTG] AS [MaTG], 
+    [VIETSACH].[Masach] AS [Masach], 
+    [VIETSACH].[Vaitro] AS [Vaitro]
+    FROM [dbo].[VIETSACH] AS [VIETSACH]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__BaoCaoMuon__MaCD__29572725" Association="Self.FK__BaoCaoMuon__MaCD__29572725">
+      <End Role="CHUDE" EntitySet="CHUDE" />
+      <End Role="BaoCaoMuonSach" EntitySet="BaoCaoMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PhieuM__MaPhi__2F10007B" Association="Self.FK__CT_PhieuM__MaPhi__2F10007B">
+      <End Role="PhieuMuonSach" EntitySet="PhieuMuonSach" />
+      <End Role="CT_PhieuMuonSach" EntitySet="CT_PhieuMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CT_PhieuM__Masac__300424B4" Association="Self.FK__CT_PhieuM__Masac__300424B4">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="CT_PhieuMuonSach" EntitySet="CT_PhieuMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuMuonS__MaDG__20C1E124" Association="Self.FK__PhieuMuonS__MaDG__20C1E124">
+      <End Role="DOCGIA" EntitySet="DOCGIA" />
+      <End Role="PhieuMuonSach" EntitySet="PhieuMuonSach" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhieuThu__MaDG__267ABA7A" Association="Self.FK__PhieuThu__MaDG__267ABA7A">
+      <End Role="DOCGIA" EntitySet="DOCGIA" />
+      <End Role="PhieuThu" EntitySet="PhieuThu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__MaCD__164452B1" Association="Self.FK__SACH__MaCD__164452B1">
+      <End Role="CHUDE" EntitySet="CHUDE" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SACH__MaNXB__173876EA" Association="Self.FK__SACH__MaNXB__173876EA">
+      <End Role="NXB" EntitySet="NXB" />
+      <End Role="SACH" EntitySet="SACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIETSACH__Masach__1BFD2C07" Association="Self.FK__VIETSACH__Masach__1BFD2C07">
+      <End Role="SACH" EntitySet="SACH" />
+      <End Role="VIETSACH" EntitySet="VIETSACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIETSACH__MaTG__1B0907CE" Association="Self.FK__VIETSACH__MaTG__1B0907CE">
+      <End Role="TACGIA" EntitySet="TACGIA" />
+      <End Role="VIETSACH" EntitySet="VIETSACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
