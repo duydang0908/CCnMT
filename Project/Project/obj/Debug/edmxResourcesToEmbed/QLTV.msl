@@ -27,6 +27,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CT_PhieuMuonSach">
+      <EntityTypeMapping TypeName="QLThuVienModel.CT_PhieuMuonSach">
+        <MappingFragment StoreEntitySet="CT_PhieuMuonSach">
+          <ScalarProperty Name="MaPhieuMuon" ColumnName="MaPhieuMuon" />
+          <ScalarProperty Name="Masach" ColumnName="Masach" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DOCGIAs">
       <EntityTypeMapping TypeName="QLThuVienModel.DOCGIA">
         <MappingFragment StoreEntitySet="DOCGIA">

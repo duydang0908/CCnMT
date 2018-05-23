@@ -56,6 +56,7 @@
 <table align="center">
     @using (Html.BeginForm())
     {
+        @Html.ValidationSummary(true)
         <tr style="height:40px">
             <td> Họ tên khách hàng : </td>
             <td style="font-weight:bold">&nbsp;@dg.TenDG</td>
@@ -66,7 +67,7 @@
         </tr>
         <tr style="height:40px">
             <td> Điện thoại : </td>
-            <td style="font-weight:bold">&nbsp;@dg</td>
+            <td style="font-weight:bold">&nbsp;@dg.DienThoai</td>
         </tr>
         <tr style="height:40px">
             <td> Ngày đặt : </td>

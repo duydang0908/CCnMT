@@ -413,3 +413,38 @@ INSERT [dbo].[VIETSACH] ([MaTG], [Masach], [Vaitro]) VALUES (15, 17, N'Tác gi�
 INSERT [dbo].[VIETSACH] ([MaTG], [Masach], [Vaitro]) VALUES (15, 18, N'Tác giả')
 INSERT [dbo].[VIETSACH] ([MaTG], [Masach], [Vaitro]) VALUES (16, 13, N'Tác giả')
 SET IDENTITY_INSERT [dbo].[VIETSACH] OFF
+
+
+--------------- Khi đặt hàng giảm số lượng trong bảng sản phẩm ---------------
+go
+CREATE TRIGGER GiamSoLuongHang ON dbo.CT_PhieuMuonSach FOR INSERT
+AS
+    DECLARE @maHang nvarchar(5)
+    DECLARE @soLuong INT
+    SELECT @maHang=Masach,@soLuong=SoLuong FROM inserted  
+    UPDATE SACH SET SoLuongCon-=@soLuong WHERE Masach=@maHang
+ 
+--------------- Khi số lượng bằng 0 không cho đặt hàng nữa ---------------
+GO
+CREATE TRIGGER SoLuongAm
+ON SACH
+FOR INSERT, UPDATE
+as 
+	declare @SoLuong float
+	select @SoLuong=SoLuongCon from inserted
+	if(@SoLuong < 0) 
+		begin
+		print 'hang da het khong the dat hang' 
+		rollback tran
+		end
+ 
+---------------- Khi hủy đơn hàng số lượng sản phẩm sẽ tặng lại ---------------
+Go
+create TRIGGER HuyDonHang ON CT_PhieuMuonSach FOR DELETE AS 
+BEGIN
+	UPDATE SACH
+	SET SoLuongCon = SoLuongCon + (SELECT SoLuong FROM deleted WHERE Masach = SACH.Masach)
+	FROM SACH 
+	JOIN deleted ON SACH.Masach = deleted.Masach
+END
+ 

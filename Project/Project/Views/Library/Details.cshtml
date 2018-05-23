@@ -1,79 +1,57 @@
 ﻿@model Project.SACH
 
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: limegreen;
+        color: black;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: left;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        position:center;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: firebrick;
+        }
+</style>
+
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<h2>Details</h2>
+<h1 style="text-align:center; font-weight:bold">Thông tin sách</h1>
 
 <div>
-    <h4>SACH</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Tensach)
-        </dt>
+    <div style="width:40%; float:initial;border-left:dotted 1px;border-color:azure">
+        <img src="~/images/@Model.Hinhminhhoa" style="width:300px ; height:300px" />
+    </div>
+    <div style="width:60%;float:left;padding:10px">
+        <h2 style="font-weight:bold;color:red">Tên sách: @Model.Tensach</h2>
+        <p style="text-align:justify"><span style="font-weight:bold;color:navy">Mô tả: </span></p><p>@Model.Mota</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tensach)
-        </dd>
+        <p style="text-align:justify"><span style="font-weight:bold; color:navy">Số lượng: </span>@Model.SoLuongCon</p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mota)
-        </dt>
+        <p style="text-align:justify"><span style="font-weight:bold; color:navy">NXB: </span>@Model.NXB.TenNXB</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mota)
-        </dd>
+        <div id="Datmua" style="align-content:center">
+            <a href="@Url.Action("ThemGioHang","Order",new {  @iMasach = Model.Masach, @strUrl = Request.Url.ToString()})">
+                Lấy sách
+            </a>
+        </div><br />
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Masach }) |*@
+        @Html.ActionLink("Back to List", "Index")
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Hinhminhhoa)
-        </dt>
-
-        <dd>
-            <img src="~/images/@Html.DisplayFor(model => model.Hinhminhhoa)" />
+    </div>
             
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ngaycapnhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CHUDE.TenCD)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CHUDE.TenCD)
-        </dd>
-
-        @*<dt>
-            @Html.DisplayNameFor(model => model.LoaiSach.TenLoaiSach)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LoaiSach.TenLoaiSach)
-        </dd>*@
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NXB.TenNXB)
-        </dt>
-            
-        <dd>
-            @Html.DisplayFor(model => model.NXB.TenNXB)
-        </dd>
-
-    </dl>
+       
 </div>
-<p>
-    <a href="@Url.Action("ThemGioHang","Order",new {  @iMasach = Model.Masach, @strUrl = Request.Url.ToString()})">
-        Lấy sách
-    </a>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Masach }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+

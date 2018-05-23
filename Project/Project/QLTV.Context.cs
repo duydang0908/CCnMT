@@ -28,6 +28,7 @@ namespace Project
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<BaoCaoMuonSach> BaoCaoMuonSaches { get; set; }
         public virtual DbSet<CHUDE> CHUDEs { get; set; }
+        public virtual DbSet<CT_PhieuMuonSach> CT_PhieuMuonSach { get; set; }
         public virtual DbSet<DOCGIA> DOCGIAs { get; set; }
         public virtual DbSet<NXB> NXBs { get; set; }
         public virtual DbSet<PhieuMuonSach> PhieuMuonSaches { get; set; }

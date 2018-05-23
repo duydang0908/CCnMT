@@ -17,8 +17,8 @@ namespace Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SACH()
         {
-            this.VIETSACHes = new HashSet<VIETSACH>();
             this.CT_PhieuMuonSach = new HashSet<CT_PhieuMuonSach>();
+            this.VIETSACHes = new HashSet<VIETSACH>();
         }
     
         public int Masach { get; set; }
@@ -31,10 +31,10 @@ namespace Project
         public Nullable<System.DateTime> Ngaycapnhat { get; set; }
     
         public virtual CHUDE CHUDE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_PhieuMuonSach> CT_PhieuMuonSach { get; set; }
         public virtual NXB NXB { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VIETSACH> VIETSACHes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_PhieuMuonSach> CT_PhieuMuonSach { get; set; }
     }
 }
